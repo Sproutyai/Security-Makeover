@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import SectionHeader from '@/components/SectionHeader';
 import CTAButton from '@/components/CTAButton';
 import StatCounter from '@/components/StatCounter';
-import FeatureCard from '@/components/FeatureCard';
 import ContactForm from '@/components/ContactForm';
 import PhoneCTA from '@/components/PhoneCTA';
 import {
@@ -111,14 +110,14 @@ export default function MobileSurveillanceTrailersPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/70 to-navy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/50 to-navy/90" />
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-[0.25em] text-electric-blue mb-4">
             Southwest Florida&apos;s #1 Mobile Surveillance Provider
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[1.05] mb-6">
             Mobile Surveillance{' '}
-            <span className="text-electric-blue">Trailers</span>
+            <span className="text-electric-blue text-glow-blue">Trailers</span>
           </h1>
           <p className="text-lg md:text-xl text-medium-gray max-w-3xl mx-auto mb-10 leading-relaxed">
             Rapid-deploy security that goes where you need it. Solar-powered,
@@ -143,21 +142,30 @@ export default function MobileSurveillanceTrailersPage() {
       </section>
 
       {/* ════════════════════════════════════════════ 8 KEY FEATURES */}
-      <section className="bg-navy py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative bg-navy py-20 md:py-28 bg-grid-pattern">
+        <div className="absolute inset-0 radial-glow-blue pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <SectionHeader
             eyebrow="Capabilities"
             title="Built for Every Scenario"
             subtitle="Military-grade surveillance technology packaged for rapid commercial deployment."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((f) => (
-              <FeatureCard
+              <div
                 key={f.title}
-                icon={f.icon}
-                title={f.title}
-                description={f.description}
-              />
+                className="glass-card p-8 hover:border-electric-blue/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(0,180,216,0.15)] group"
+              >
+                <div className="text-electric-blue mb-5 w-14 h-14 flex items-center justify-center bg-electric-blue/10 rounded-xl group-hover:bg-electric-blue/20 transition-colors">
+                  {f.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-electric-blue transition-colors">
+                  {f.title}
+                </h3>
+                <p className="text-medium-gray leading-relaxed text-[15px]">
+                  {f.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
@@ -185,7 +193,7 @@ export default function MobileSurveillanceTrailersPage() {
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Guard limitations */}
-            <div className="bg-dark-surface border border-border-dark rounded-lg overflow-hidden">
+            <div className="glass-card overflow-hidden border-t-4 border-t-red hover:shadow-[0_8px_32px_rgba(230,57,70,0.15)] transition-all duration-500">
               <div className="relative h-64 w-full">
                 <Image
                   src="/images/guard-sleeping.jpg"
@@ -193,7 +201,7 @@ export default function MobileSurveillanceTrailersPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-surface to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,31,58,0.9)] via-[rgba(15,31,58,0.4)] to-transparent" />
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-red mb-4">
@@ -221,14 +229,15 @@ export default function MobileSurveillanceTrailersPage() {
             </div>
 
             {/* Trailer advantages */}
-            <div className="bg-dark-surface border border-electric-blue/30 rounded-lg overflow-hidden">
+            <div className="glass-card overflow-hidden border-t-4 border-t-electric-blue featured-glow hover:shadow-[0_8px_32px_rgba(0,180,216,0.25)] transition-all duration-500">
               <div className="relative h-64 w-full">
                 <Image
                   src="/images/trailer-product-1.png"
                   alt="All American Alarm Mobile Surveillance Trailer"
                   fill
-                  className="object-contain bg-navy p-4"
+                  className="object-contain bg-navy/50 p-4"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,31,58,0.6)] to-transparent" />
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-electric-blue mb-4">
@@ -259,23 +268,26 @@ export default function MobileSurveillanceTrailersPage() {
       </section>
 
       {/* ════════════════════════════════════════════ BROCHURE DOWNLOAD */}
-      <section id="brochure" className="bg-navy py-20 md:py-28">
+      <section id="brochure" className="relative bg-navy py-20 md:py-28 bg-grid-pattern">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
-              <Image
-                src="/images/trailer-brochure.png"
-                alt="Mobile Surveillance Brochure"
-                width={500}
-                height={650}
-                className="rounded-lg shadow-2xl border border-border-dark"
-              />
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-electric-blue/30 to-electric-blue/10 rounded-xl blur-sm group-hover:blur-md transition-all" />
+                <Image
+                  src="/images/trailer-brochure.png"
+                  alt="Mobile Surveillance Brochure"
+                  width={500}
+                  height={650}
+                  className="relative rounded-lg shadow-2xl border border-border-dark"
+                />
+              </div>
             </div>
             <div>
               <span className="text-sm font-semibold uppercase tracking-widest text-electric-blue mb-3 block">
                 Free Download
               </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 Mobile Surveillance Brochure
               </h2>
               <p className="text-medium-gray text-lg leading-relaxed mb-6">
@@ -313,35 +325,47 @@ export default function MobileSurveillanceTrailersPage() {
             title="Purpose-Built for Protection"
           />
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative h-80 rounded-lg overflow-hidden border border-border-dark">
-              <Image
-                src="/images/trailer-product-1.png"
-                alt="Mobile Surveillance Trailer Unit 1"
-                fill
-                className="object-contain bg-navy p-6"
-              />
+            <div className="glass-card overflow-hidden group hover:-translate-y-1 transition-all duration-500">
+              <div className="relative h-80 w-full">
+                <Image
+                  src="/images/trailer-product-1.png"
+                  alt="Mobile Surveillance Trailer Unit 1"
+                  fill
+                  className="object-contain bg-navy/30 p-6"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <div className="p-4 text-center">
+                <span className="text-sm font-semibold text-electric-blue uppercase tracking-wide">Rapid-Deploy Unit</span>
+              </div>
             </div>
-            <div className="relative h-80 rounded-lg overflow-hidden border border-border-dark">
-              <Image
-                src="/images/trailer-product-2.png"
-                alt="Mobile Surveillance Trailer Unit 2"
-                fill
-                className="object-contain bg-navy p-6"
-              />
+            <div className="glass-card overflow-hidden group hover:-translate-y-1 transition-all duration-500">
+              <div className="relative h-80 w-full">
+                <Image
+                  src="/images/trailer-product-2.png"
+                  alt="Mobile Surveillance Trailer Unit 2"
+                  fill
+                  className="object-contain bg-navy/30 p-6"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              <div className="p-4 text-center">
+                <span className="text-sm font-semibold text-electric-blue uppercase tracking-wide">Solar-Powered Unit</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════ DEPLOYMENT CTA */}
-      <section className="bg-navy py-20 md:py-28">
+      <section className="relative bg-navy py-20 md:py-28 bg-grid-pattern">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <span className="text-sm font-semibold uppercase tracking-widest text-electric-blue mb-3 block">
                 Get Started
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">
                 Ready to Deploy?
               </h2>
               <p className="text-medium-gray text-lg leading-relaxed mb-8">

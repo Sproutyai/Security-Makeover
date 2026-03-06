@@ -2,7 +2,6 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import SectionHeader from '@/components/SectionHeader';
 import CTAButton from '@/components/CTAButton';
-import FeatureCard from '@/components/FeatureCard';
 import PhoneCTA from '@/components/PhoneCTA';
 import {
   CameraIcon,
@@ -58,14 +57,15 @@ export default function FeaturesPage() {
     <>
       {/* ════════════════════════════════════════════ HERO */}
       <section className="relative bg-navy pt-40 pb-20 md:pt-48 md:pb-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 to-navy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 to-navy bg-grid-pattern" />
+        <div className="absolute inset-0 radial-glow-blue pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-[0.25em] text-electric-blue mb-4">
             Technology
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.05] mb-6">
             Features &{' '}
-            <span className="text-electric-blue">Technology</span>
+            <span className="text-electric-blue text-glow-blue">Technology</span>
           </h1>
           <p className="text-lg md:text-xl text-medium-gray max-w-2xl mx-auto leading-relaxed">
             Military-grade surveillance technology made accessible for
@@ -75,14 +75,14 @@ export default function FeaturesPage() {
       </section>
 
       {/* ════════════════════════════════════════════ CAMERA TECHNOLOGY */}
-      <section className="bg-charcoal py-20 md:py-28">
+      <section className="relative bg-charcoal py-20 md:py-28 bg-grid-pattern">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-sm font-semibold uppercase tracking-widest text-electric-blue mb-3 block">
                 Optics
               </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
                 Camera Technology
               </h2>
               <p className="text-medium-gray text-lg leading-relaxed mb-8">
@@ -99,13 +99,16 @@ export default function FeaturesPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative h-96 rounded-lg overflow-hidden border border-border-dark">
-              <Image
-                src="/images/trailer-product-1.png"
-                alt="Mobile Surveillance Trailer with PTZ cameras"
-                fill
-                className="object-contain bg-navy p-6"
-              />
+            <div className="glass-card overflow-hidden group">
+              <div className="relative h-96">
+                <Image
+                  src="/images/trailer-product-1.png"
+                  alt="Mobile Surveillance Trailer with PTZ cameras"
+                  fill
+                  className="object-contain bg-navy/30 p-6"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
             </div>
           </div>
         </div>
@@ -115,19 +118,22 @@ export default function FeaturesPage() {
       <section className="bg-navy py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 relative h-96 rounded-lg overflow-hidden border border-border-dark">
-              <Image
-                src="/images/trailer-product-2.png"
-                alt="Solar-powered mobile surveillance unit"
-                fill
-                className="object-contain bg-navy p-6"
-              />
+            <div className="order-2 lg:order-1 glass-card overflow-hidden group">
+              <div className="relative h-96">
+                <Image
+                  src="/images/trailer-product-2.png"
+                  alt="Solar-powered mobile surveillance unit"
+                  fill
+                  className="object-contain bg-navy/30 p-6"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
             </div>
             <div className="order-1 lg:order-2">
               <span className="text-sm font-semibold uppercase tracking-widest text-electric-blue mb-3 block">
                 Autonomous Operation
               </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
                 Power & Connectivity
               </h2>
               <p className="text-medium-gray text-lg leading-relaxed mb-8">
@@ -149,7 +155,7 @@ export default function FeaturesPage() {
       </section>
 
       {/* ════════════════════════════════════════════ MONITORING & ALERTS */}
-      <section className="bg-charcoal py-20 md:py-28">
+      <section className="relative bg-charcoal py-20 md:py-28 bg-grid-pattern">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             eyebrow="Intelligence"
@@ -169,9 +175,9 @@ export default function FeaturesPage() {
               return (
                 <div
                   key={item}
-                  className="bg-dark-surface border border-border-dark rounded-lg p-6 hover:border-electric-blue/50 transition-colors"
+                  className="glass-card p-6 hover:border-electric-blue/50 transition-all duration-300 hover:-translate-y-1 group"
                 >
-                  <div className="text-electric-blue text-3xl mb-3">
+                  <div className="text-electric-blue text-3xl mb-3 w-12 h-12 flex items-center justify-center bg-electric-blue/10 rounded-xl group-hover:bg-electric-blue/20 transition-colors">
                     {icons[i]}
                   </div>
                   <p className="text-white font-semibold">{item}</p>
@@ -194,7 +200,7 @@ export default function FeaturesPage() {
             {physicalSpecs.map((spec) => (
               <div
                 key={spec}
-                className="flex items-start gap-4 bg-dark-surface border border-border-dark rounded-lg p-6 hover:border-electric-blue/50 transition-colors"
+                className="glass-card flex items-start gap-4 p-6 hover:border-electric-blue/50 transition-all duration-300 hover:-translate-y-1"
               >
                 <CheckCircleIcon className="w-6 h-6 text-electric-blue flex-shrink-0 mt-0.5" />
                 <span className="text-white font-medium">{spec}</span>
@@ -205,13 +211,13 @@ export default function FeaturesPage() {
       </section>
 
       {/* ════════════════════════════════════════════ TECH SPECS TABLE */}
-      <section className="bg-charcoal py-20 md:py-28">
+      <section className="relative bg-charcoal py-20 md:py-28 bg-grid-pattern">
         <div className="max-w-4xl mx-auto px-6">
           <SectionHeader
             eyebrow="At a Glance"
             title="Technical Summary"
           />
-          <div className="bg-dark-surface border border-border-dark rounded-lg overflow-hidden">
+          <div className="glass-card overflow-hidden">
             <table className="w-full text-left">
               <tbody className="divide-y divide-border-dark">
                 {[
@@ -242,7 +248,7 @@ export default function FeaturesPage() {
       {/* ════════════════════════════════════════════ CTA */}
       <section className="bg-navy py-20 md:py-28 border-t border-border-dark">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
             See the Technology in Action
           </h2>
           <p className="text-medium-gray text-lg mb-10">

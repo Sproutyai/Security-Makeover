@@ -76,13 +76,14 @@ export default function HowItWorksPage() {
     <>
       {/* ════════════════════════════════════════════ HERO */}
       <section className="relative bg-navy pt-40 pb-20 md:pt-48 md:pb-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 to-navy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 to-navy bg-grid-pattern" />
+        <div className="absolute inset-0 radial-glow-blue pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <span className="inline-block text-sm font-semibold uppercase tracking-[0.25em] text-electric-blue mb-4">
             Our Process
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.05] mb-6">
-            How It <span className="text-electric-blue">Works</span>
+            How It <span className="text-electric-blue text-glow-blue">Works</span>
           </h1>
           <p className="text-lg md:text-xl text-medium-gray max-w-2xl mx-auto leading-relaxed">
             From first call to full operation — our streamlined deployment
@@ -92,7 +93,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ════════════════════════════════════════════ 6-STEP TIMELINE */}
-      <section className="bg-charcoal py-20 md:py-28">
+      <section className="relative bg-charcoal py-20 md:py-28 bg-grid-pattern">
         <div className="max-w-4xl mx-auto px-6">
           <SectionHeader
             eyebrow="Step by Step"
@@ -102,20 +103,20 @@ export default function HowItWorksPage() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-border-dark" />
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-electric-blue/50 via-electric-blue/20 to-border-dark" />
 
             <div className="space-y-12">
-              {steps.map((step, i) => (
+              {steps.map((step) => (
                 <div key={step.number} className="relative flex gap-6 md:gap-8">
                   {/* Circle */}
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full bg-electric-blue flex items-center justify-center">
+                  <div className="relative z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full bg-electric-blue flex items-center justify-center shadow-[0_0_20px_rgba(0,180,216,0.3)]">
                     <span className="text-navy font-mono font-extrabold text-sm md:text-lg">
                       {step.number}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <div className="bg-dark-surface border border-border-dark rounded-lg p-6 md:p-8 flex-1 hover:border-electric-blue/40 transition-colors">
+                  <div className="glass-card p-6 md:p-8 flex-1 hover:border-electric-blue/40 transition-all duration-300 hover:-translate-y-1">
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                       {step.title}
                     </h3>
@@ -143,7 +144,7 @@ export default function HowItWorksPage() {
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className="bg-dark-surface border border-border-dark rounded-lg overflow-hidden"
+                className="glass-card overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -182,14 +183,14 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ════════════════════════════════════════════ CTA */}
-      <section className="bg-charcoal py-20 md:py-28 border-t border-border-dark">
+      <section className="relative bg-charcoal py-20 md:py-28 border-t border-border-dark bg-grid-pattern">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <span className="text-sm font-semibold uppercase tracking-widest text-electric-blue mb-3 block">
                 Get Started Today
               </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
                 Request a Free Site Assessment
               </h2>
               <p className="text-medium-gray text-lg leading-relaxed mb-8">
