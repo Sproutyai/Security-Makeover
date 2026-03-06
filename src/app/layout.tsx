@@ -17,6 +17,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://security-makeover.vercel.app'),
   title: {
     default: 'All American Alarm | Mobile Surveillance Trailers & Commercial Security',
     template: '%s | All American Alarm',
