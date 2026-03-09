@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=Open+Sans:wght@400;500;700&family=Inter:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #081F42;
+  --color-royal-blue: #2166FF;
+  --color-cta-blue: #0060CF;
+  --color-bright-blue: #0038FF;
+  --color-off-white: #FBF8FF;
+  --color-light-lavender: #F6F6FF;
+  --color-dark-text: #091E42;
+  --color-gray-text: #646260;
+  --color-muted-purple: #565A7C;
+  --color-light-steel: #C9D8E0;
+  --color-slate-gray: #8893A8;
+  --color-dark-card: #222639;
+
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-opensans: 'Open Sans', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-jakarta);
+  background: #ffffff;
+  color: #171717;
+  margin: 0;
+  padding: 0;
+}
+
+/* FAQ accordion animation */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+.faq-answer.open {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in;
+}
+
+/* Chevron rotation */
+.chevron {
+  transition: transform 0.3s ease;
+}
+.chevron.rotate {
+  transform: rotate(180deg);
+}
